@@ -1,0 +1,11 @@
+<br>
+<h1>Add a new List</h1>
+<br>
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Save List", class: "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to 'Back', lists_path %>
+
+SHOULD ADD ALL MOVIE TITLES (OR RATHER MOVIE IDS) IN THE LIST

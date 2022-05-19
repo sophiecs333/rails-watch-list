@@ -1,0 +1,26 @@
+<br>
+<h1>All movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Overview</th>
+      <th>Poster</th>
+      <th>Rating</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.overview %></td>
+        <td><%= movie.poster_url %></td>
+        <td><%= movie.rating %></td>
+        <td><%= link_to 'Show', movie %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
