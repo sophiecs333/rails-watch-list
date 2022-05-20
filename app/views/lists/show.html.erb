@@ -9,6 +9,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Overview</th>
+      <th>Poster</th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -17,8 +19,17 @@
       <tr>
         <td><% @list.movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
-       <%= movie.title %> <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
+       <%= movie.title %>
         <% end %></td>
+        <td><% @list.movies.each do |movie| %>
+        <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+        <%= movie.overview %>
+        <% end %></td>
+        <td><% @list.movies.each do |movie| %>
+        <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+        <%= movie.poster_url %> <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
+        <% end %></td>
+        <br>
       </tr>
   </tbody>
 </table>

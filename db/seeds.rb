@@ -17,12 +17,13 @@ movie_ids = JSON.parse(URI.open(FILMS_URL).read)["results"]
 
 movie_ids.each do |movie|
   poster_base_url = "https://image.tmdb.org/t/p/original"
-  Movie.create(
+  film_image = URI.open("#{poster_base_url}#{movie["poster_path"]}")
+  new_movie = Movie.create(
     title: movie["title"],
     overview: movie["overview"],
-    poster_url: "#{poster_base_url}#{movie["poster_path"]}",
     rating: movie["vote_average"]
   )
+  new_movie.photo.attach(io: film_image, filename: "#{movie["title"]}.jpg", content_type: 'image/jpg')
 end
 
 
