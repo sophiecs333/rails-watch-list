@@ -1,5 +1,8 @@
 <br>
 <h1>All movies</h1>
+<br>
+<%= link_to 'Go to lists', lists_path %>
+<br>
 
 <table>
   <thead>
@@ -11,17 +14,16 @@
       <th colspan="4"></th>
     </tr>
   </thead>
-
-  <table>
-    <tbody>
-      <% @movies.each do |movie| %>
-        <tr>
-          <td><%= movie.title %></td>
-          <td><%= movie.overview %></td>
-          <td><%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fill %></td>
-          <td><%= movie.rating %></td>
-          <td><%= link_to 'Show', movies_path %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <br>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.overview %></td>
+        <td><%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fit %></td>
+        <td><%= movie.rating %></td>
+        <td><%= link_to 'Show', movies_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
