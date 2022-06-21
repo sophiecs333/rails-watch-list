@@ -1,9 +1,7 @@
 <br>
 
 <div class="list-name">
-  <p>
-    <%= @list.name %>
-  </p>
+  <h1><%= @list.name %></h1>
 </div>
 
 <div class="cards-show">
@@ -18,6 +16,8 @@
       <strong><%= movie.title %></strong>
       <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
       <%= movie.overview %>
+      <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+      <%= bookmark.comment %>
       <p>Comment (this would be like entering a review)</p>
         <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: "text-delete" %>
     </div>
