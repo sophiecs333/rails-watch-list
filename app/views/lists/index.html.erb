@@ -13,7 +13,7 @@
         <div class="card-trip-infos">
           <h3><%= list.name %></h3>
           <p>Short description here!</p>
-          <p><%= link_to 'See', list %> <%= link_to 'Update', edit_list_path(list) %> <%= link_to 'Delete', list_path(list), method: :delete %></p>
+          <p><%= link_to 'See', list %> <%= link_to 'Update', edit_list_path(list) %> <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %></p>
         </div>
       </div>
     <% end %>

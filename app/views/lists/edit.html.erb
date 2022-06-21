@@ -1,9 +1,11 @@
 <br>
-<h1>Edit your list</h1>
-<br>
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Save List", class: "btn btn-primary" %>
-<% end %>
-<br>
-<%= link_to 'Back', root_path %>
+<div class="edit-list">
+  <h1>Edit your list</h1>
+  <br>
+  <%= simple_form_for(@list) do |f| %>
+    <p><%= f.input :name %></p>
+    <p><%= f.submit "Save", class: "btn btn-primary" %></p>
+  <% end %>
+  <br>
+  <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+</div>
