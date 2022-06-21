@@ -1,34 +1,34 @@
 <br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+<div class="list-name">
+  <p>
+    <%= @list.name %>
+  </p>
+</div>
 
-
-
+<div class="cards-show">
   <% @list.movies.each do |movie| %>
-  <div class"col-sm-3">
-  <div class="card-movie">
-      <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
-      <%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fit %>
-
-    <div class="card-movie-details">
-    <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
-    <strong><%= movie.title %></strong>
-    <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
-    <%= movie.overview %>
-    <p>Comment (this would be like entering a review)</p>
+  <div class="card-movie-show col-sm-3">
+    <div class="card-movie-image">
+        <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+        <%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fit %>
     </div>
-    <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
-  </div>
+    <div class="card-movie-show-details">
+      <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+      <strong><%= movie.title %></strong>
+      <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+      <%= movie.overview %>
+      <p>Comment (this would be like entering a review)</p>
+      <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
+    </div>
   </div>
   <% end %>
-  <br>
+</div>
+<br>
 
 
 <br>
-<%= link_to 'Add a film(create bookmark)', new_list_bookmark_path(@list) %>
-<%= link_to 'Back to all lists', lists_path %>
-
-COMMENT
+<div class="btn-div">
+<%= link_to 'Add a film(create bookmark)', new_list_bookmark_path(@list), class: "btn-show" %>
+<%= link_to 'Back to all lists', lists_path, class: "btn-show" %>
+</div>
