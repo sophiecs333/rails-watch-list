@@ -19,7 +19,7 @@
       <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
       <%= movie.overview %>
       <p>Comment (this would be like entering a review)</p>
-      <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
+        <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: "text-delete" %>
     </div>
   </div>
   <% end %>
