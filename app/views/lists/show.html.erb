@@ -22,6 +22,7 @@
       <%= bookmark.comment %>
       <br>
       <br>
+      <%= link_to "update", edit_list_bookmark_path(bookmark), class: "text-delete" %>
       <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: "text-delete" %>
     </div>
   </div>
