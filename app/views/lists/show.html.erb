@@ -17,8 +17,10 @@
       <% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
       <%= movie.overview %>
       <br>
-      <p><strong>Comment:</strong><% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
-      <%= bookmark.comment %></p>
+      <br>
+      <strong>Comment:</strong><% bookmark = Bookmark.find_by(list_id: @list.id, movie_id: movie.id)%>
+      <%= bookmark.comment %>
+      <br>
       <br>
       <%= link_to "delete", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: "text-delete" %>
     </div>
